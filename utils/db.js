@@ -17,6 +17,7 @@ async function initDB() {
   // Handle database upgrade (called when DB is created or version changes)
   request.onupgradeneeded = (event) => {
     const db = event.target.result;
+    const DB_VERSION = 2; // Increment from 1 to 2
     
     // Create the object store (table) if it doesn't exist
     if (!db.objectStoreNames.contains(STORE_NAME)) {
